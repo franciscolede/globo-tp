@@ -139,6 +139,8 @@ main{
   " info info info"
   "post post datos";
 
+  grid-template-columns: 1fr 1fr 1fr;
+
   row-gap: 50px;
   column-gap: 50px;
 
@@ -207,6 +209,10 @@ align-self: center;
 .post{
   grid-area: post;
 
+  width: 100%;
+  /* max-width: 700px; */
+  word-wrap: break-word;
+
   justify-self: stretch;
   /* align-self: center; */
 }
@@ -236,6 +242,7 @@ align-self: center;
 .post img{
   
   width: 100%;
+  max-width: 100%;
   object-fit: cover;
   /* width: 700px;
   max-width: 700px; */
@@ -274,7 +281,9 @@ align-self: center;
   border-width: 0;
 }
 
-
+#my-coment{
+  
+}
 
 /* ABOUT ME */
 

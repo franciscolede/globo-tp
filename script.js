@@ -23,26 +23,16 @@ let txtUser = "";
 
 user.addEventListener('input', function(event) {
     txtUser = event.target.value;
+    // txtUser += ": ";
 })
 
 // --------------Comentario-------------
 
-// const coment = document.getElementById('input-comentario');
-// const txtComent = "";
-
-// coment.addEventListener('input', function(event) {
-//     txtComent = event.target.value;
-// })
-
-// const btnComent = document.getElementById('btnComent');
-// btnComent.addEventListener('click', function(){
-//     var myComent = document.getElementById('my-coment');
-//     myComent.innerHTML = txtComent;
-// })
 
 const form = document.querySelector('form');
 const comentInput = document.querySelector('#input-comentario');
 const myComent = document.querySelector('#my-coment');
+const zonaError = document.getElementById('zona-error');
 
 form.addEventListener('submit', (event) =>{
     event.preventDefault();
@@ -50,9 +40,19 @@ form.addEventListener('submit', (event) =>{
 
     const coment = comentInput.value;
 
-
-    myComent.innerHTML += `<p>${coment}</p>`;
-
+    if (txtUser != "" && coment != ""){
+        myComent.innerHTML += `<p><span>${txtUser}</span>`+ `<span>: </span>` +`${coment}</p>`;
+    }
+    else if(txtUser == ""){
+        zonaError.textContent = 'Debes ingresar tu nombre antes de comentar';
+        return;
+    }
+    else if(coment == ""){
+        zonaError.textContent = 'Debes ingresar un texto para poder comentar';
+        return;
+    }
+    
+    zonaError.textContent = '';
     comentInput.value = '';
 
 });

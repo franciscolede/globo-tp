@@ -282,7 +282,12 @@ align-self: center;
 }
 
 #my-coment{
-  
+  padding: 0;
+}
+
+
+#my-coment span{
+  color: rgb(54, 112, 238);
 }
 
 /* ABOUT ME */

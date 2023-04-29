@@ -14,8 +14,8 @@
       <div class="logo">
         <a href="#"><img src="assets/images/logo.webp" alt="" /></a>
       </div>
-      <div class="search">
-        <input type="search" placeholder="Ingresa tu usuario..." />
+      <div class="user">
+        <input type="text" placeholder="Ingresa tu usuario..." id="inputUser"/>
         <img src="assets/images/blank-profile-picture-973460_960_720.webp" alt="" />
       </div>
     </header>
@@ -35,7 +35,9 @@
             <p><span>Ciudad:</span> Rosario, Santa Fé</p>
             <p>Trabajando en <span>PSG</span></p>
           </div>
-          <div class="profile-follow"><button class="button-blue">Seguir</button></div>
+          <div class="profile-follow">
+            <button id="btnFollow" class="btnBlue">Seguir</button>
+          </div>
         </div>
         <!-- ZONA POST -->
 
@@ -63,7 +65,7 @@
             </div>
             
             <div class="post-coments-input">
-              <input id="input-comentario" type="text" placeholder="Deja tu comentario..."> <input type="submit" class="button-blue">
+              <input id="input-comentario" type="text" placeholder="Deja tu comentario..."> <input type="submit" class="btnBlue" id="btnComent">
             </div>
           </div>
         </div>

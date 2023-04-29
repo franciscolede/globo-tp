@@ -49,7 +49,7 @@ header {
 
 /* ZONA BUSQUEDA */
 
-.search {
+.user {
   max-height: 60px;
   margin-right: 10%;
 
@@ -59,7 +59,7 @@ header {
   column-gap: 10px;
 }
 
-.search input{
+.user input{
     max-height: 60px;
     height: 30px;
     border-radius: 7px;
@@ -67,13 +67,13 @@ header {
     border-width: 0;
 }
 
-.search input:focus{
+.user input:focus{
   outline: none;
 }
 
 /* USUARIO */
 
-.search img{
+.user img{
     height: 35px;
     width: 35px;
     border-radius: 100px;
@@ -89,15 +89,37 @@ main{
   justify-content: center;
 }
 
-.button-blue{
-  height: 30px;
-  width: 60px;
+.btnBlue{
+  width: 100px;
+  height: 40px;
+  padding: 5px;
   color: white;
   /* font-style: italic; */
   font-family: "Montserrat";
 
+  text-align: center;
+  font-weight: bold;
+
 
   background-color: rgb(54, 112, 238);
+  border-width: 0;
+  border-radius: 5px;
+}
+
+.unfollow{
+  width: 100px;
+  height: 40px;
+  padding: 5px;
+  color: white;
+  /* font-style: italic; */
+  font-family: "Montserrat";
+
+  text-align: center;
+  font-size: 11px;
+  font-weight: bold;
+
+
+  background-color: rgb(189, 28, 28);
   border-width: 0;
   border-radius: 5px;
 }
@@ -292,7 +314,7 @@ align-self: center;
     margin: 0;
   }
 
-  .search{
+  .user{
     margin:0;
     /* column-gap: 25px; */
   }

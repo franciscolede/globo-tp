@@ -89,6 +89,23 @@ main{
   justify-content: center;
 }
 
+.button-blue{
+  height: 30px;
+  width: 60px;
+  color: white;
+  /* font-style: italic; */
+  font-family: "Montserrat";
+
+
+  background-color: rgb(54, 112, 238);
+  border-width: 0;
+  border-radius: 5px;
+}
+
+.button-blue:focus{
+  background-color: rgb(163, 20, 20);
+}
+
 /* MAIN CONTAINER */
 
 .main-container{
@@ -215,12 +232,19 @@ align-self: center;
 
 /* POST COMENTARIOS */
 
+.post-coments-input{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  column-gap: 20px;
+}
+
 .post-coments #coments{
   color: rgb(87, 87, 87);
   margin: 0;
 }
 
-.post-coments input{
+.post-coments #input-comentario{
   height: 35px;
   width: 85%;
   border-radius: 7px;
@@ -301,8 +325,8 @@ align-self: center;
     width: 100%;
   }
 
-  .profile-photo{
-  }
+  /* .profile-photo{
+  } */
 
   .profile-info{
     margin: 0 auto;

@@ -57,3 +57,30 @@ form.addEventListener('submit', (event) =>{
 
 });
 
+
+
+// --------------LIKESSSSS-------------
+
+var likeButton = document.getElementById("like-button");
+var likeCount = 500;
+var disliked = true;
+
+likeButton.addEventListener("click", function() {
+  if (disliked) {
+    likeCount++;
+    disliked = false;
+    likeButton.innerHTML = "No Me Gusta";
+    likeButton.classList.remove("disliked");
+  } else {
+    likeCount--;
+    disliked = true;
+    likeButton.innerHTML = "Me gusta";
+    likeButton.classList.add("disliked");
+  }
+  updateLikeCount();
+});
+
+function updateLikeCount() {
+  var likeCountElement = document.getElementById("like-count");
+  likeCountElement.innerHTML = likeCount;
+}

@@ -389,7 +389,7 @@ align-self: center;
 }
 
 .post-coments #coments{
-  color: rgb(87, 87, 87);
+  color: rgb(126, 125, 125);
   margin: 0;
 }
 
@@ -444,6 +444,55 @@ align-self: center;
 }
 
 
+/* modo oscuro  */
+
+#modo-oscuro{
+  background-color: white;
+  position: relative;
+  width: 80px;
+  height: 40px;
+  border-radius: 25px;
+  box-shadow: inset 4px 4px 6px #cecece,
+              inset -4px -4px 6px #fff;
+  width: 80px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.toggle{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  transform: scale(.7);
+  background-color: linear-gradient(145deg,#d8d8d8,#ffffff) ;
+  border-radius: 50px;
+  box-shadow: 3px 3px 8px #c4c4c4,
+              -3px -3px 8px #fff;
+}
+
+#modo-oscuro.active .toggle{
+
+  left: 40px;
+
+}
+
+body.active{
+  background-color: #1c1d1f;
+}
+
+.zone.active, .zone.active div{
+  background-color: #000000;
+}
+
+
+
+.zone.active p,.zone.active h1,.zone.active h3,.zone.active h4,.zone.active section{
+  color: rgba(255, 255, 255, 0.685);
+}
+
+
 /* --------------------- */
 
 
@@ -462,7 +511,8 @@ align-self: center;
 
   .user{
     margin:0;
-    /* column-gap: 25px; */
+    /* row-gap: 25px; */
+    flex-direction: row;
   }
 
   /* ---------------------- */

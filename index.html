@@ -18,7 +18,10 @@
       <div class="user">
         <div id="user-error"> </div>
         <input type="text" placeholder="Ingresa tu usuario..." id="inputUser"/>
-        <img src="assets/images/blank-profile-picture-973460_960_720.webp" alt="" />
+        <!-- <img src="assets/images/blank-profile-picture-973460_960_720.webp" alt="" /> -->
+        <div id="modo-oscuro">
+          <div class="toggle"></div>
+        </div>
       </div>
     </header>
 
@@ -27,7 +30,7 @@
     <main>
       <div class="main-container">
         <!-- ZONA INFO -->
-        <div class="info">
+        <div class="info zone">
           <div class="profile-photo"><img src="assets/images/leo-beso.webp" alt=""></div>
           <div class="profile-info">
             <h1>Leo Messi</h1>
@@ -43,7 +46,7 @@
         </div>
 
         <!-- ZONA PRIVADO -->
-        <div class="private-profile display-on" id="private-profile">
+        <div class="private-profile display-on zone" id="private-profile">
           <div>
             <h3>ESTE PERFIL ES PRIVADO</h3>
             <h4>SIGUELO PARA VER EL CONTENIDO</h4>
@@ -53,7 +56,7 @@
 
         <!-- ZONA POST -->
 
-        <div class="post display-off" id="post">
+        <div class="post display-off zone" id="post">
           <div class="post-date">
             <p>Publicado hace 4 meses</p>
           </div>
@@ -75,8 +78,8 @@
                   </div>
                 </div>
   
-                <div class="slider_btn slider_btn_right" id="btn_right">&#62;</div>
-                <div class="slider_btn slider_btn_left" id="btn_left">&#60;</div>
+                <div class="slider_btn slider_btn_right zone" id="btn_right"><section>&#62;</section></div>
+                <div class="slider_btn slider_btn_left zone" id="btn_left"><section>&#60;</section></div>
             </div>
           </div>
           <div class="post-likes">
@@ -101,14 +104,14 @@
                 <input type="text" placeholder="Ingrese un comentario..." name="coment" id="input-comentario" class="">
                 <button type="submit" id="submit-coment" class="btnBlue">Comentar</button>
               </form>
-              <div id="zona-error"></div>
+              <div  class="zone"><p id="zona-error"></p></div>
             </div>
           </div>
         </div>
 
           <!--ZONA ABOUT-ME-->
 
-        <div class="about-me display-off" id="about-me">
+        <div class="about-me display-off zone" id="about-me">
           <p id="sobre-mi">Sobre mi:</p>
           <p>
             Hola, mi nombre es Lionel Andrés Messi, nací en la ciudad de Rosario, Santa Fé en el año 1987.

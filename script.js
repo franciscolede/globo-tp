@@ -70,7 +70,7 @@ form.addEventListener('submit', (event) =>{
     else if(txtUser == ""){
         zonaError.textContent = 'Debes ingresar TU NOMBRE antes de comentar';
         document.getElementById('inputUser').focus();
-        userError.textContent = 'Ingrese su usuario';
+        // userError.textContent = 'Ingrese su usuario';
         return;
     }
     else if(coment == ""){
@@ -155,3 +155,15 @@ btnRight.addEventListener('click',function(){
 btnLeft.addEventListener('click',function(){
   moverIzquierda();
 })
+
+//---------MODO OSCURO--------
+
+var toggle = document.getElementById('modo-oscuro');
+var body = document.querySelector('body');
+var containers = document.querySelectorAll('.zone');
+
+toggle.onclick = function(){
+  toggle.classList.toggle('active');
+  body.classList.toggle('active');
+  containers.forEach(container => container.classList.toggle('active'));
+}

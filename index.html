@@ -15,9 +15,16 @@
         <a href="#"><img src="assets/images/logo.webp" alt="" /></a>
       </div>
       <div class="user">
+        <div id="user-error"> </div>
         <input type="text" placeholder="Ingresa tu usuario..." id="inputUser"/>
         <img src="assets/images/blank-profile-picture-973460_960_720.webp" alt="" />
+
+        <div id="modo-oscuro">
+          <div class="toggle"></div>
+        </div>
+        
       </div>
+      
     </header>
 
     <!-- MAIN -->
@@ -26,7 +33,7 @@
       <div class="main-container">
         <!-- ZONA INFO -->
         <div class="info">
-          <div class="profile-photo"><img src="assets/images/messi.webp" alt=""></div>
+          <div class="profile-photo"><img src="assets/images/leo-beso.webp" alt=""></div>
           <div class="profile-info">
             <h1>Leo Messi</h1>
             <p><span>Email:</span> ankara1987@gmail.com</p>
@@ -36,7 +43,7 @@
             <p>Trabajando en <span>PSG</span></p>
           </div>
           <div class="profile-follow">
-            <button id="btnFollow" class="btnBlue">Seguir</button>
+            <button id="btnFollow" class="btnBlue follow">Seguir</button>
           </div>
         </div>
         <!-- ZONA POST -->
@@ -46,18 +53,37 @@
             <p>Publicado hace 4 meses</p>
           </div>
           <div class="post-photos">
-              <img src="assets/images/1671507234965.png" alt="">
+              <!-- <img src="assets/images/1671507234965.png" alt=""> -->
+              <div class="container-slider">
+                <div class="slider" id="slider">
+                  <div class="slider_section">
+                    <img src="assets/images/messi4.webp" alt="" class="slider_img">
+                  </div>
+                  <div class="slider_section">
+                    <img src="assets/images/messi2.jpg" alt="" class="slider_img">
+                  </div>
+                  <div class="slider_section">
+                    <img src="assets/images/messi1.webp" alt="" class="slider_img">
+                  </div>
+                  <div class="slider_section">
+                    <img src="assets/images/messi3.jpg" alt="" class="slider_img">
+                  </div>
+                </div>
+  
+                <div class="slider_btn slider_btn_right" id="btn_right">&#62;</div>
+                <div class="slider_btn slider_btn_left" id="btn_left">&#60;</div>
+            </div>
           </div>
           <div class="post-likes">
             <div class="like">
-              <button id="like-button">Me Gusta</button>
+              <button id="like-button" class="btnWhite">Me Gusta</button>
             </div>
             <div class="like-count">
-              <p><span id="like-count">500</span> Likes</p>
+              <p><span id="like-count">74999999</span> Likes</p>
             </div>
           </div>
           <div class="post-coments">
-            <div>
+            <div class="coments-fijos">
               <p id="coments">Comentarios</p>
               <p><span>nicolas.otamendi30:</span> buena makina</p>
               <p><span>rodri_depaul:</span> grande paa</p>
@@ -67,7 +93,7 @@
             
             <div>
               <form action="" class="post-coments-input" id="form-coment">
-                <input type="text" name="coment" id="input-comentario" class="">
+                <input type="text" placeholder="Ingrese un comentario..." name="coment" id="input-comentario" class="">
                 <button type="submit" id="submit-coment" class="btnBlue">Comentar</button>
               </form>
               <div id="zona-error"></div>

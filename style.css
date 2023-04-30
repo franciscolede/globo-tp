@@ -255,6 +255,8 @@ align-self: center;
 
   justify-content: center;
   align-items: start;
+
+  margin-left: 10px;
 }
 
 .post-date p{
@@ -422,7 +424,7 @@ align-self: center;
 }
 
 #sobre-mi{
-  margin-top: 0px;
+  margin-top: 10px;
   font-size: 20px;
 }
 

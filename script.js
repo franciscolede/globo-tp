@@ -4,15 +4,37 @@ const btnFollow = document.getElementById('btnFollow');
 const textFollow = "Seguir";
 const textUnfollow = "Dejar de seguir";
 
+const postDiv = document.getElementById('post');
+const aboutMeDiv = document.getElementById('about-me');
+const privateDiv = document.getElementById('private-profile');
+
 btnFollow.addEventListener('click', function() {
     if (this.classList.contains('follow')) {
         this.textContent = textUnfollow;
         this.classList.remove('follow');
         this.classList.add('unfollow');
+
+        postDiv.classList.remove('display-off');
+        postDiv.classList.add('display-on')
+
+        aboutMeDiv.classList.remove('display-off');
+        aboutMeDiv.classList.add('display-on')
+
+        privateDiv.classList.remove('display-on');
+        privateDiv.classList.add('display-off')
     } else {
         this.textContent = textFollow;
         this.classList.remove('unfollow');
         this.classList.add('follow');
+
+        postDiv.classList.remove('display-on');
+        postDiv.classList.add('display-off')
+
+        aboutMeDiv.classList.remove('display-on');
+        aboutMeDiv.classList.add('display-off')
+
+        privateDiv.classList.remove('display-off');
+        privateDiv.classList.add('display-on')
     }
 })
 

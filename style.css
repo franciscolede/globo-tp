@@ -2,6 +2,13 @@
   box-sizing: border-box;
 }
 
+.display-on{
+  display: block;
+}
+
+.display-off {
+  display: none;
+}
 
 body {
   margin: 0;
@@ -157,7 +164,8 @@ main{
   display: grid;
   grid-template-areas: 
   " info info info"
-  "post post datos";
+  "post post datos"
+  "private private private";
 
   grid-template-columns: 1fr 1fr 1fr;
 
@@ -174,16 +182,9 @@ main{
 
 .main-container div{
   background-color: rgb(255, 255, 255);
-  /* padding: 1em; */
   border-radius: 10px;
 }
 
-/* .main-container div div{
-  padding: 0.5em;
-  
-  width: calc(100% - 2em);
-  height: calc(100% - 2em);
-} */
 
 
 /* INFO */
@@ -228,14 +229,30 @@ align-self: center;
   align-self: flex-end;
 }
 
+/* PRIVATE */
+
+.private-profile{
+  /* display: flex; */
+  grid-area: private;
+  height: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.private-profile img{
+  width: 15%;
+}
+
 /* POST */
 
 .post{
   grid-area: post;
   padding: 2%;
 
+
+
   width: 100%;
-  /* max-width: 700px; */
   word-wrap: break-word;
 
   justify-self: stretch;
@@ -275,11 +292,9 @@ align-self: center;
   max-width: 900px;
   margin: auto;
   overflow: hidden;
-  /* box-shadow: 0 15px 50px; */
   position: relative;
   }
   .slider{
-  /* height: 400px; */
   width: 400%;
   display: flex;
   margin-left: -100%;
@@ -480,6 +495,10 @@ align-self: center;
 
   /* .profile-photo{
   } */
+
+  .private-profile{
+    order: 2;
+  }
 
   .profile-info{
     margin: 0 auto;

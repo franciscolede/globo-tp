@@ -14,8 +14,8 @@
       <div class="logo">
         <a href="#"><img src="assets/images/logo.webp" alt="" /></a>
       </div>
-      <div class="search">
-        <input type="search" placeholder="Ingresa tu usuario..." />
+      <div class="user">
+        <input type="text" placeholder="Ingresa tu usuario..." id="inputUser"/>
         <img src="assets/images/blank-profile-picture-973460_960_720.webp" alt="" />
       </div>
     </header>
@@ -35,7 +35,9 @@
             <p><span>Ciudad:</span> Rosario, Santa Fé</p>
             <p>Trabajando en <span>PSG</span></p>
           </div>
-          <div class="profile-follow"><button class="btnFollow">Seguir</button></div>
+          <div class="profile-follow">
+            <button id="btnFollow" class="btnBlue">Seguir</button>
+          </div>
         </div>
         <!-- ZONA POST -->
 
@@ -48,19 +50,27 @@
           </div>
           <div class="post-likes">
             <div class="like">
-              <button id="btnLike">Me gusta</button>
+              <button id="like-button">Me Gusta</button>
             </div>
-            <div class="like-amount">
-              74.999.999 Me gusta
+            <div class="like-count">
+              <p><span id="like-count">500</span> Likes</p>
             </div>
           </div>
           <div class="post-coments">
-            <p id="coments">Comentarios</p>
-            <p><span>nicolas.otamendi30:</span> buena makina</p>
-            <p><span>rodri_depaul:</span> grande paa</p>
-            <p><span>papugome:</span> qiero volver a la seleccion</p>
             <div>
-              <input type="text" placeholder="Deja tu comentario..."> <button class="btnComent">Comentar</button>
+              <p id="coments">Comentarios</p>
+              <p><span>nicolas.otamendi30:</span> buena makina</p>
+              <p><span>rodri_depaul:</span> grande paa</p>
+              <p><span>papugome:</span> qiero volver a la seleccion</p>
+              <div id="my-coment"></div>
+            </div>
+            
+            <div>
+              <form action="" class="post-coments-input" id="form-coment">
+                <input type="text" name="coment" id="input-comentario" class="">
+                <button type="submit" id="submit-coment" class="btnBlue">Comentar</button>
+              </form>
+              <div id="zona-error"></div>
             </div>
           </div>
         </div>

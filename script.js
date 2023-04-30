@@ -24,6 +24,7 @@ let txtUser = "";
 user.addEventListener('input', function(event) {
     txtUser = event.target.value;
     // txtUser += ": ";
+    userError.textContent = ' ';
 })
 
 // --------------Comentario-------------
@@ -33,6 +34,7 @@ const form = document.querySelector('form');
 const comentInput = document.querySelector('#input-comentario');
 const myComent = document.querySelector('#my-coment');
 const zonaError = document.getElementById('zona-error');
+const userError = document.getElementById('user-error')
 
 form.addEventListener('submit', (event) =>{
     event.preventDefault();
@@ -44,11 +46,14 @@ form.addEventListener('submit', (event) =>{
         myComent.innerHTML += `<p><span>${txtUser}</span>`+ `<span>: </span>` +`${coment}</p>`;
     }
     else if(txtUser == ""){
-        zonaError.textContent = 'Debes ingresar tu nombre antes de comentar';
+        zonaError.textContent = 'Debes ingresar TU NOMBRE antes de comentar';
+        document.getElementById('inputUser').focus();
+        userError.textContent = 'Ingrese su usuario';
         return;
     }
     else if(coment == ""){
-        zonaError.textContent = 'Debes ingresar un texto para poder comentar';
+        zonaError.textContent = 'Debes ingresar UN TEXTO para poder comentar';
+        document.getElementById('input-comentario').focus();
         return;
     }
     
@@ -62,8 +67,9 @@ form.addEventListener('submit', (event) =>{
 // --------------LIKESSSSS-------------
 
 var likeButton = document.getElementById("like-button");
-var likeCount = 500;
+var likeCount = 74999999;
 var disliked = true;
+
 
 likeButton.addEventListener("click", function() {
   if (disliked) {
@@ -71,11 +77,14 @@ likeButton.addEventListener("click", function() {
     disliked = false;
     likeButton.innerHTML = "No Me Gusta";
     likeButton.classList.remove("disliked");
+    likeButton.classList.add("unfollow");
   } else {
     likeCount--;
     disliked = true;
     likeButton.innerHTML = "Me gusta";
+    likeButton.classList.remove("unfollow");
     likeButton.classList.add("disliked");
+    
   }
   updateLikeCount();
 });

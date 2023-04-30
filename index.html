@@ -15,6 +15,7 @@
         <a href="#"><img src="assets/images/logo.webp" alt="" /></a>
       </div>
       <div class="user">
+        <div id="user-error"> </div>
         <input type="text" placeholder="Ingresa tu usuario..." id="inputUser"/>
         <img src="assets/images/blank-profile-picture-973460_960_720.webp" alt="" />
       </div>
@@ -50,14 +51,14 @@
           </div>
           <div class="post-likes">
             <div class="like">
-              <button id="like-button">Me Gusta</button>
+              <button id="like-button" class="btnWhite">Me Gusta</button>
             </div>
             <div class="like-count">
-              <p><span id="like-count">500</span> Likes</p>
+              <p><span id="like-count">74999999</span> Likes</p>
             </div>
           </div>
           <div class="post-coments">
-            <div>
+            <div class="coments-fijos">
               <p id="coments">Comentarios</p>
               <p><span>nicolas.otamendi30:</span> buena makina</p>
               <p><span>rodri_depaul:</span> grande paa</p>
@@ -67,7 +68,7 @@
             
             <div>
               <form action="" class="post-coments-input" id="form-coment">
-                <input type="text" name="coment" id="input-comentario" class="">
+                <input type="text" placeholder="Ingrese un comentario..." name="coment" id="input-comentario" class="">
                 <button type="submit" id="submit-coment" class="btnBlue">Comentar</button>
               </form>
               <div id="zona-error"></div>

@@ -78,11 +78,18 @@ header {
 }
 
 
-.user img{
+/* .user img{
     height: 35px;
     width: 35px;
     border-radius: 100px;
     object-fit: cover;
+} */
+
+
+.icon-luna img{
+  margin-top: 5px;
+  height: 25px;
+  transform: scaleX(-1);
 }
 
 #user-error{
@@ -447,15 +454,13 @@ align-self: center;
 /* modo oscuro  */
 
 #modo-oscuro{
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   position: relative;
-  width: 80px;
-  height: 40px;
   border-radius: 25px;
-  box-shadow: inset 4px 4px 6px #cecece,
-              inset -4px -4px 6px #fff;
-  width: 80px;
-  height: 40px;
+  /* box-shadow: inset 4px 4px 6px #cecece, */
+              /* inset -4px -4px 6px #fff; */
+  width: 60px;
+  height: 30px;
   cursor: pointer;
 }
 
@@ -463,19 +468,29 @@ align-self: center;
   position: absolute;
   top: 0;
   left: 0;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   transform: scale(.7);
-  background-color: linear-gradient(145deg,#d8d8d8,#ffffff) ;
   border-radius: 50px;
-  box-shadow: 3px 3px 8px #c4c4c4,
-              -3px -3px 8px #fff;
+  box-shadow: 3px 3px 8px #424242,
+              -3px -3px 8px #000000;
+}
+
+#modo-oscuro .toggle{
+  background-color: #000000;
+}
+
+#modo-oscuro.active{
+  background-color: #000000;
 }
 
 #modo-oscuro.active .toggle{
-
-  left: 40px;
-
+  background-color: #fff;
+  box-shadow: 3px 3px 8px #dadada,
+              -3px -3px 8px #ffffff;
+left: auto;              
+right: 0px;
+  
 }
 
 body.active{
@@ -513,6 +528,8 @@ body.active{
     margin:0;
     /* row-gap: 25px; */
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   /* ---------------------- */

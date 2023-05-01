@@ -289,7 +289,7 @@ align-self: center;
 
 .container-slider{
   width: 100%;
-  max-width: 900px;
+  /* max-width: 1500px; */
   margin: auto;
   overflow: hidden;
   position: relative;

@@ -41,12 +41,11 @@ btnFollow.addEventListener('click', function() {
 // -------User-------------
 
 const user = document.getElementById('inputUser');
-let txtUser = "";
 
-user.addEventListener('input', function(event) {
-    txtUser = event.target.value;
-    // txtUser += ": ";
-    userError.textContent = ' ';
+user.addEventListener('input', (event) => {
+    const username = event.target.value;
+    const filteredUser = username.replace(/<\/?([a-z][a-z0-9]*)\b[^>]*>/gi, '');
+    // userError.textContent = ' ';
 })
 
 // --------------Comentario-------------
@@ -63,9 +62,15 @@ form.addEventListener('submit', (event) =>{
 
 
     const coment = comentInput.value;
+    const filteredComent = coment.replace(/<\/?([a-z][a-z0-9]*)\b[^>]*>/gi, '');
+    const username = user.value;
+    const filteredUser = username.replace(/<\/?([a-z][a-z0-9]*)\b[^>]*>/gi, '');
+    user.value = filteredUser;
+    comentInput.value = filteredComent;
+    
 
-    if (txtUser != "" && coment != ""){
-        myComent.innerHTML += `<p><span>${txtUser}</span>`+ `<span>: </span>` +`${coment}</p>`;
+    if (filteredUser != "" && filteredComent != ""){
+        myComent.innerHTML += `<p><span>${filteredUser}</span>`+ `<span>: </span>` +`${filteredComent}</p>`;
     }
     else if(txtUser == ""){
         zonaError.textContent = 'Debes ingresar TU NOMBRE antes de comentar';

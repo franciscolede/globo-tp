@@ -9,33 +9,41 @@ const aboutMeDiv = document.getElementById('about-me');
 const privateDiv = document.getElementById('private-profile');
 
 btnFollow.addEventListener('click', function() {
+  const username = document.getElementById('inputUser').value;
+
+    if (!username){
+      document.getElementById('inputUser').focus();
+      userError.textContent = 'Ingrese su usuario';
+      return;
+    }
+
     if (this.classList.contains('follow')) {
-        this.textContent = textUnfollow;
-        this.classList.remove('follow');
-        this.classList.add('unfollow');
-
-        postDiv.classList.remove('display-off');
-        postDiv.classList.add('display-on')
-
-        aboutMeDiv.classList.remove('display-off');
+      this.textContent = textUnfollow;
+      this.classList.remove('follow');
+      this.classList.add('unfollow');
+      
+      postDiv.classList.remove('display-off');
+      postDiv.classList.add('display-on')
+      
+      aboutMeDiv.classList.remove('display-off');
         aboutMeDiv.classList.add('display-on')
-
+        
         privateDiv.classList.remove('display-on');
         privateDiv.classList.add('display-off')
-    } else {
+      } else {
         this.textContent = textFollow;
         this.classList.remove('unfollow');
         this.classList.add('follow');
-
+        
         postDiv.classList.remove('display-on');
         postDiv.classList.add('display-off')
-
+        
         aboutMeDiv.classList.remove('display-on');
         aboutMeDiv.classList.add('display-off')
-
+        
         privateDiv.classList.remove('display-off');
         privateDiv.classList.add('display-on')
-    }
+      }
 })
 
 // -------User-------------
@@ -44,8 +52,7 @@ const user = document.getElementById('inputUser');
 
 user.addEventListener('input', (event) => {
     const username = event.target.value;
-    const filteredUser = username.replace(/<\/?([a-z][a-z0-9]*)\b[^>]*>/gi, '');
-    // userError.textContent = ' ';
+    userError.textContent = ' ';
 })
 
 // --------------Comentario-------------
@@ -55,7 +62,7 @@ const form = document.querySelector('form');
 const comentInput = document.querySelector('#input-comentario');
 const myComent = document.querySelector('#my-coment');
 const zonaError = document.getElementById('zona-error');
-const userError = document.getElementById('user-error')
+const userError = document.getElementById('user-error');
 
 form.addEventListener('submit', (event) =>{
     event.preventDefault();
@@ -72,13 +79,13 @@ form.addEventListener('submit', (event) =>{
     if (filteredUser != "" && filteredComent != ""){
         myComent.innerHTML += `<p><span>${filteredUser}</span>`+ `<span>: </span>` +`${filteredComent}</p>`;
     }
-    else if(txtUser == ""){
+    else if(filteredUser == ""){
         zonaError.textContent = 'Debes ingresar TU NOMBRE antes de comentar';
         document.getElementById('inputUser').focus();
-        // userError.textContent = 'Ingrese su usuario';
+        userError.textContent = 'Ingrese su usuario';
         return;
     }
-    else if(coment == ""){
+    else if(filteredComent == ""){
         zonaError.textContent = 'Debes ingresar UN TEXTO para poder comentar';
         document.getElementById('input-comentario').focus();
         return;

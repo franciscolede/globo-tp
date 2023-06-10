@@ -1,148 +1,159 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Globo</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/png" href="assets/images/logo-icon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="app">
 
-      <!-- HEADER -->
-      
-      <header>
-        <div class="logo">
-          <a href=""><img src="assets/images/logo.webp" alt="" /></a>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Globo</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="assets/images/logo-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+
+    <!-- HEADER -->
+
+    <header>
+      <div class="logo">
+        <a href=""><img src="assets/images/logo.webp" alt="" /></a>
+      </div>
+      <div class="user">
+        <div id="user-error" ref="refUserError" class="display-off">Ingrese su usuario</div>
+        <form @submit.prevent="submitUser" id="formUser" ref="refFormUser">
+          <input type="text" ref="refInputUser" v-model="username" placeholder="Ingresa tu usuario..." id="inputUser" />
+          <button type="submit">Ingresar</button>
+        </form>
+        <p style="color:white" ref="refUserShow" id="usershow" class="display-off">{{username}}</p>
+        <!-- <img src="assets/images/blank-profile-picture-973460_960_720.webp" alt="" /> -->
+        <div id="modo-oscuro">
+          <div class="toggle"></div>
         </div>
-        <div class="user">
-          <div id="user-error" class="display-off">Ingrese su usuario</div>
-          <form @submit.prevent="submitUser" id="formUser">
-            <input type="text" v-model="username" placeholder="Ingresa tu usuario..." id="inputUser"/>
-            <button type="submit">Ingresar</button>
-          </form>
-          <p style="color:white" id="usershow" class="display-off">{{username}}</p>
-          <!-- <img src="assets/images/blank-profile-picture-973460_960_720.webp" alt="" /> -->
-          <div id="modo-oscuro">
-            <div class="toggle"></div>
+        <div class="icon-luna active">
+          <img src="assets/images/luna.png" alt="">
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+
+    <main>
+      <div class="main-container">
+        <!-- ZONA INFO -->
+        <div class="info zone">
+          <div class="profile-photo"><img :src="user.image" :alt="user.alt"></div>
+          <div class="profile-info">
+            <h1> {{ user.name }} </h1>
+            <p><span>Email:</span> {{user.mail}}</p>
+            <p><span>Fecha de nacimiento:</span> {{user.date}}</p>
+            <p><span>Teléfono:</span> {{user.tel}}</p>
+            <p><span>Ciudad:</span> {{user.city}}</p>
+            <p>Trabajando en <span> {{user.job}}</span></p>
           </div>
-          <div class="icon-luna active">
-            <img src="assets/images/luna.png" alt="">
+          <div class="profile-follow">
+            <button id="btnFollow" ref="refBtnFollow" @click="follow" class="btnBlue follow zoom">{{btnSeguir}}</button>
           </div>
         </div>
-      </header>
-      
-      <!-- MAIN -->
-      
-      <main>
-        <div class="main-container">
-          <!-- ZONA INFO -->
-          <div class="info zone">
-            <div class="profile-photo"><img :src="user.image" :alt="user.alt"></div>
-            <div class="profile-info">
-              <h1> {{ user.name }} </h1>
-              <p><span>Email:</span> {{user.mail}}</p>
-              <p><span>Fecha de nacimiento:</span> {{user.date}}</p>
-              <p><span>Teléfono:</span> {{user.tel}}</p>
-              <p><span>Ciudad:</span> {{user.city}}</p>
-              <p>Trabajando en <span> {{user.job}}</span></p>
-            </div>
-            <div class="profile-follow">
-              <button id="btnFollow" @click="follow" class="btnBlue follow zoom">{{btnSeguir}}</button>
+
+        <!-- ZONA PRIVADO -->
+        <div class="private-profile display-off zone" id="private-profile">
+          <div>
+            <h3>ESTE PERFIL ES PRIVADO</h3>
+            <h4>SIGUELO PARA VER EL CONTENIDO</h4>
+            <img src="assets/images/candado.png" alt="Candado">
+          </div>
+        </div>
+
+        <!-- ZONA POST -->
+
+        <div class="post display-on zone" id="post">
+          <div class="post-date">
+            <p>Publicado hace {{post.date}}</p>
+          </div>
+          <div class="post-photos">
+            <div class="container-slider">
+              <div class="slider" id="slider">
+                <div class="slider_section">
+                  <img :src="post.image1" class="slider_img">
+                </div>
+                <div class="slider_section">
+                  <img :src="post.image2" class="slider_img">
+                </div>
+                <div class="slider_section">
+                  <img :src="post.image3" class="slider_img">
+                </div>
+                <div class="slider_section">
+                  <img :src="post.image4" class="slider_img">
+                </div>
+              </div>
+
+              <div class="slider_btn slider_btn_right zone" id="btn_right">
+                <section>&#62;</section>
+              </div>
+              <div class="slider_btn slider_btn_left zone" id="btn_left">
+                <section>&#60;</section>
+              </div>
             </div>
           </div>
-          
-          <!-- ZONA PRIVADO -->
-          <div class="private-profile display-off zone" id="private-profile">
+          <div class="post-likes">
+            <div class="like">
+              <button id="like-button" class="btnWhite zoom">{{btnLike}}</button>
+            </div>
+            <div class="like-count">
+              <p><span id="like-count">{{likes}}</span> Likes</p>
+            </div>
+          </div>
+          <div class="post-coments">
+            <div class="coments-fijos">
+              <p id="coments">Comentarios</p>
+              <p><span>paulodybala:</span> Idolooooooooo</p>
+              <p><span>rodridepaul:</span> GRACIAS CAPITÁN, EL MÁS GRANDE DE LA HISTORIA.</p>
+              <p><span>enzojfernandez:</span> GRACIAS💙🤍🇦🇷</p>
+              <div id="my-coment"></div>
+            </div>
+
             <div>
-              <h3>ESTE PERFIL ES PRIVADO</h3>
-              <h4>SIGUELO PARA VER EL CONTENIDO</h4>
-              <img src="assets/images/candado.png" alt="Candado">
+              <form action="" class="post-coments-input" id="form-coment">
+                <input type="text" placeholder="Ingrese un comentario..." name="coment" id="input-comentario" class="">
+                <button type="submit" id="submit-coment" class="btnBlue zoom">Comentar</button>
+              </form>
+              <div class="zone">
+                <p id="zona-error"></p>
+              </div>
             </div>
           </div>
-        
-          <!-- ZONA POST -->
-          
-          <div class="post display-on zone" id="post">
-            <div class="post-date">
-              <p>Publicado hace {{post.date}}</p>
-            </div>
-            <div class="post-photos">
-              <div class="container-slider">
-                <div class="slider" id="slider">
-                  <div class="slider_section">
-                    <img :src="post.image1"class="slider_img">
-                  </div>
-                  <div class="slider_section">
-                      <img :src="post.image2" class="slider_img">
-                    </div>
-                    <div class="slider_section">
-                      <img :src="post.image3" class="slider_img">
-                    </div>
-                    <div class="slider_section">
-                      <img :src="post.image4" class="slider_img">
-                    </div>
-                  </div>
-                  
-                  <div class="slider_btn slider_btn_right zone" id="btn_right"><section>&#62;</section></div>
-                  <div class="slider_btn slider_btn_left zone" id="btn_left"><section>&#60;</section></div>
-                </div>
-              </div>
-              <div class="post-likes">
-                <div class="like">
-                  <button id="like-button" class="btnWhite zoom">{{btnLike}}</button>
-                </div>
-                <div class="like-count">
-                  <p><span id="like-count">{{likes}}</span> Likes</p>
-                </div>
-              </div>
-              <div class="post-coments">
-                <div class="coments-fijos">
-                  <p id="coments">Comentarios</p>
-                  <p><span>paulodybala:</span> Idolooooooooo</p>
-                  <p><span>rodridepaul:</span> GRACIAS CAPITÁN, EL MÁS GRANDE DE LA HISTORIA.</p>
-                  <p><span>enzojfernandez:</span> GRACIAS💙🤍🇦🇷</p>
-                  <div id="my-coment"></div>
-                </div>
-                
-                <div>
-                  <form action="" class="post-coments-input" id="form-coment">
-                    <input type="text" placeholder="Ingrese un comentario..." name="coment" id="input-comentario" class="">
-                    <button type="submit" id="submit-coment" class="btnBlue zoom">Comentar</button>
-                  </form>
-                  <div  class="zone"><p id="zona-error"></p></div>
-                </div>
-              </div>
-          </div>
-
-            <!--ZONA ABOUT-ME-->
-            
-            <div class="about-me display-ofn zone" id="about-me">
-              <p id="sobre-mi">Sobre mi:</p>
-              <p>
-                Hola, mi nombre es Lionel Andrés Messi, nací en la ciudad de Rosario, Santa Fé en el año 1987.
-                Soy futbolista y comencé mi carrera profesional en el FC Barcelona, club en el que gané una gran cantidad de títulos. Hoy en día me encuentro jugando en el Paris-Saint-Germain, club al que llegué en 2021 después de ganar mi primer título con la selección Argentina.
-                Además, en 2022 pude cumplir mi máximo sueño, ganar la copa del mundo con mi país, lo cual es un orgullo para mí.
-              </p>
-            </div>
         </div>
-      </main>
-      
-      <!-- FOOTER -->
-      
-      <footer></footer>
-      
-      <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-      <script src="scriptVue.js"></script>
-      <!-- <script src="script.js"></script> -->
+
+        <!--ZONA ABOUT-ME-->
+
+        <div class="about-me display-ofn zone" id="about-me">
+          <p id="sobre-mi">Sobre mi:</p>
+          <p>
+            Hola, mi nombre es Lionel Andrés Messi, nací en la ciudad de Rosario, Santa Fé en el año 1987.
+            Soy futbolista y comencé mi carrera profesional en el FC Barcelona, club en el que gané una gran cantidad de
+            títulos. Hoy en día me encuentro jugando en el Paris-Saint-Germain, club al que llegué en 2021 después de
+            ganar mi primer título con la selección Argentina.
+            Además, en 2022 pude cumplir mi máximo sueño, ganar la copa del mundo con mi país, lo cual es un orgullo
+            para mí.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer></footer>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="scriptVue.js"></script>
+    <!-- <script src="script.js"></script> -->
 
 
-    </div>
-    </body>
-    </html>
-    
+  </div>
+</body>
+
+</html>

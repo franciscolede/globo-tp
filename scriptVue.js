@@ -36,9 +36,9 @@ const app = Vue.createApp({
     },
     methods:{
         follow() {
-            const btn = document.getElementById('btnFollow')
-            const inputUser = document.getElementById('inputUser')
-            const error = document.getElementById('user-error')
+            const btn = this.$refs.refBtnFollow
+            const inputUser = this.$refs.refInputUser
+            const error = this.$refs.refUserError
             if (this.username !== "") {   
                 
                 if (this.btnSeguir == "Seguir"){
@@ -63,16 +63,16 @@ const app = Vue.createApp({
         },
 
         submitUser() {
-            const error = document.getElementById('user-error')
-            const inputUser = document.getElementById('inputUser')
+            const error = this.$refs.refUserError
+            const inputUser = this.$refs.refInputUser
             if (this.username !== ""){
                 error.classList.remove('display-on')
                 error.classList.add('display-off')
 
-                const form = document.getElementById('formUser')
+                const form = this.$refs.refFormUser
                 form.classList.add('display-off')
                 
-                const usershow = document.getElementById('usershow')
+                const usershow = this.$refs.refUserShow
                 usershow.classList.remove('display-off')
                 usershow.classList.add('display-on')
             }

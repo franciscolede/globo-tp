@@ -2,6 +2,11 @@
   box-sizing: border-box;
 }
 
+ul {
+  list-style-type: none;
+  padding-left: 0px;
+}
+
 /* --------display--------- */
 
 .display-on{
@@ -136,7 +141,21 @@ main{
   transform: scale(1.05);
 }
 
+#btnUser{
+  width: 25px;
+  height: 25px;
+  margin-left: 5px;
+  cursor: pointer;
 
+  background-color: rgba(18, 7, 61, 0.452);
+  color: white;
+  border: #fff solid 1px;
+  border-radius: 100%;
+}
+
+#btnUser:hover{
+  background-color: rgb(8, 3, 27);
+}
 
 .btnWhite{
   width: 100px;
@@ -428,7 +447,49 @@ align-self: center;
 
 #my-coment{
   padding: 0;
+  width: 100%;
+  padding-bottom: 3%;
 }
+
+#my-coment ul{
+  margin: 0px;
+  padding: 0px;
+}
+
+#my-coment-li{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+
+  padding-bottom: 1%;
+}
+
+#divCom{
+  background-color: transparent;
+  word-wrap: break-word;
+  max-width: 88.3%;
+
+
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+#btnEliminar{
+  margin-right: 25px;
+  color: rgb(133.67, 30, 30);
+  font-family:monospace;
+
+  background-color: transparent;
+  border: none;
+
+  font-size: 17.3px;
+  cursor: pointer;
+
+}
+
 
 
 #my-coment span{

@@ -23,12 +23,12 @@
         <a href=""><img src="assets/images/logo.webp" alt="" /></a>
       </div>
       <div class="user">
-        <div id="user-error" ref="refUserError" class="display-off">Ingrese su usuario</div>
-        <form @submit.prevent="submitUser" id="formUser" ref="refFormUser">
-          <input type="text" ref="refInputUser" v-model="username" placeholder="Ingresa tu usuario..." id="inputUser" />
-          <button type="submit">Ingresar</button>
+        <div id="user-error" v-if="vision.error">Ingrese su usuario</div>
+        <form @submit.prevent="submitUser" v-if="vision.userForm" id="formUser">
+          <input type="text" v-model="username" placeholder="Ingresa tu usuario..." id="inputUser" />
+          <button id="btnUser" type="submit">&#10148;</button>
         </form>
-        <p style="color:white" ref="refUserShow" id="usershow" class="display-off">{{username}}</p>
+        <p style="color:white" id="usershow" v-if="vision.user">{{username}}</p>
         <!-- <img src="assets/images/blank-profile-picture-973460_960_720.webp" alt="" /> -->
         <div id="modo-oscuro">
           <div class="toggle"></div>
@@ -55,7 +55,7 @@
             <p>Trabajando en <span> {{user.job}}</span></p>
           </div>
           <div class="profile-follow">
-            <button id="btnFollow" ref="refBtnFollow" @click="follow" class="btnBlue follow zoom">{{btnSeguir}}</button>
+            <button id="btnFollow" @click="follow" :class="{'btnBlue follow': btnSeguirColor, 'unfollow': !btnSeguirColor}" class="zoom">{{btnSeguir}}</button>
           </div>
         </div>
 
@@ -101,7 +101,7 @@
           </div>
           <div class="post-likes">
             <div class="like">
-              <button id="like-button" class="btnWhite zoom">{{btnLike}}</button>
+              <button @click="like" :class="{'btnWhite': btnLikeColor, 'unfollow': !btnLikeColor}" id="like-button" class="zoom">{{btnLike}}</button>
             </div>
             <div class="like-count">
               <p><span id="like-count">{{likes}}</span> Likes</p>
@@ -113,16 +113,22 @@
               <p><span>paulodybala:</span> Idolooooooooo</p>
               <p><span>rodridepaul:</span> GRACIAS CAPITÁN, EL MÁS GRANDE DE LA HISTORIA.</p>
               <p><span>enzojfernandez:</span> GRACIAS💙🤍🇦🇷</p>
-              <div id="my-coment"></div>
+              <div id="my-coment">
+                <ul>
+                  <li  id="my-coment-li" v-for="(comentario, index) in comentArray" :key="index"><div id="divCom"><span>{{ username }}: </span> {{ comentario }}</div>
+                    <button @click="eliminar(index)" id="btnEliminar" class="">x</button></li>
+                </ul>
+                
+              </div>
             </div>
 
             <div>
-              <form action="" class="post-coments-input" id="form-coment">
-                <input type="text" placeholder="Ingrese un comentario..." name="coment" id="input-comentario" class="">
+              <form @submit.prevent="coment" class="post-coments-input" id="form-coment">
+                <input v-model="comentText" type="text" placeholder="Ingrese un comentario..." name="coment" id="input-comentario">
                 <button type="submit" id="submit-coment" class="btnBlue zoom">Comentar</button>
               </form>
               <div class="zone">
-                <p id="zona-error"></p>
+                <p id="zona-error" v-if="vision.comentError">{{errorVacio}}</p>
               </div>
             </div>
           </div>

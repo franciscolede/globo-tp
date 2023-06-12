@@ -3,9 +3,27 @@ const app = Vue.createApp({
       return {
 
         btnSeguir: "Seguir",
+        btnSeguirColor: true,
+
         btnLike: "Me gusta",
-        likes: "74999999",
+        btnLikeColor: true,
+        likes: 74999999,
+
         username: "",
+        usernameCheck: false,
+        
+        comentArray: [],
+        comentText: "",
+
+        errorVacio: "Debes ingresar UN TEXTO para poder comentar",
+
+
+        vision:{
+            userForm: true,
+            error: false,
+            user: false,
+            comentError: false,
+        },
 
         user:{
             image: "assets/images/leo-beso.webp",
@@ -20,69 +38,97 @@ const app = Vue.createApp({
         },
 
         post: {
-            date: "4 meses",
+            date: "6 meses",
             image1: "assets/images/messi3.webp",
             image2: "assets/images/messi4.webp",
             image3: "assets/images/messi2.webp",
             image4: "assets/images/messi1.webp",
         },
 
-        coments: {
-
-        }
         
-
-      }
-    },
-    methods:{
+        
+        
+    }
+},
+methods:{
+        submitUser() {
+            if (this.username !== ""){
+                this.vision.error = false
+        
+                this.vision.userForm = false
+                
+                this.vision.user = true
+                this.usernameCheck = true
+            }
+            else{
+                
+                this.vision.error = true
+                inputUser.focus()
+            }
+        },
+        
         follow() {
-            const btn = this.$refs.refBtnFollow
-            const inputUser = this.$refs.refInputUser
-            const error = this.$refs.refUserError
-            if (this.username !== "") {   
+            if (this.usernameCheck == true) {   
                 
                 if (this.btnSeguir == "Seguir"){
-
                     this.btnSeguir = "Dejar de seguir"
 
-                    btn.classList.remove('btnBlue')
-                    btn.classList.add('unfollow')
+                    this.btnSeguirColor = false
                 }
                 else if (this.btnSeguir == "Dejar de seguir"){
                     this.btnSeguir = "Seguir"
 
-                    btn.classList.remove('unfollow')
-                    btn.classList.add('btnBlue')
+                    this.btnSeguirColor = true
                 }
             }
             else{
                 inputUser.focus()
-                error.classList.remove('display-off')
-                error.classList.add('display-on')
+                this.vision.error = true
             }
         },
 
-        submitUser() {
-            const error = this.$refs.refUserError
-            const inputUser = this.$refs.refInputUser
-            if (this.username !== ""){
-                error.classList.remove('display-on')
-                error.classList.add('display-off')
+        like(){
+            if(this.usernameCheck == true){
 
-                const form = this.$refs.refFormUser
-                form.classList.add('display-off')
-                
-                const usershow = this.$refs.refUserShow
-                usershow.classList.remove('display-off')
-                usershow.classList.add('display-on')
+                if (this.btnLikeColor == true){
+                    this.likes += 1
+                    this.btnLikeColor = false
+                    this.btnLike = "No me gusta"
+                }
+                else {
+                    this.likes -= 1
+                    this.btnLikeColor = true
+                    this.btnLike = "Me gusta"
+                }
             }
             else{
-                
-                error.classList.remove('display-off')
-                error.classList.add('display-on')
                 inputUser.focus()
+                this.vision.error = true
             }
-        }
+        },
+
+        coment(){
+            if(this.usernameCheck == true){
+                if (this.comentText !== ""){
+                    this.comentArray.push(this.comentText)
+                    this.comentText = ""
+                    this.vision.comentError = false
+                    
+                }
+                else{
+                    this.vision.comentError = true
+                }
+            }
+            else{
+                inputUser.focus()
+                this.vision.error = true
+            }
+        },
+
+        eliminar(index){
+            this.comentArray.splice(index, 1)
+        },
+
     },
 })
 

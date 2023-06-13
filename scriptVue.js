@@ -17,6 +17,7 @@ const app = Vue.createApp({
 
         errorVacio: "Debes ingresar UN TEXTO para poder comentar",
 
+        modoOscuro: false,
 
         vision:{
             userForm: true,
@@ -127,6 +128,15 @@ methods:{
 
         eliminar(index){
             this.comentArray.splice(index, 1)
+        },
+
+        modoOscuroButton(){
+            if(this.modoOscuro == false){
+                this.modoOscuro = true
+            }
+            else{
+                this.modoOscuro = false
+            }
         },
 
     },

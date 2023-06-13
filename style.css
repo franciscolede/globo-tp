@@ -22,12 +22,15 @@ body {
   padding: 0;
 
   font-family: "Montserrat", sans-serif;
-  background-color: rgb(233, 233, 233);
+  
 
   display: flex;
   flex-direction: column;
 }
 
+main{
+  background-color: rgb(233, 233, 233);
+}
 
 span{
   font-weight: bold;
@@ -194,6 +197,12 @@ main{
 
 .button-blue:focus{
   background-color: rgb(163, 20, 20);
+}
+
+#usershow{
+  color:white;
+  padding: 0px;
+  margin: 0px;
 }
 
 /* MAIN CONTAINER */
@@ -569,7 +578,7 @@ right: 0px;
   
 }
 
-body.active{
+main.active{
   background-color: #1c1d1f;
 }
 
@@ -579,7 +588,7 @@ body.active{
 
 
 
-.zone.active p,.zone.active h1,.zone.active h3,.zone.active h4,.zone.active section{
+.zone.active p,.zone.active h1,.zone.active h3,.zone.active h4,.zone.active section, #divCom.active{
   color: rgba(255, 255, 255, 0.685);
 }
 

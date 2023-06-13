@@ -20,7 +20,7 @@
 
     <header>
       <div class="logo">
-        <a href=""><img src="assets/images/logo.webp" alt="" /></a>
+        <a href=""><img src="assets/images/logo.webp" alt="Logo Globo" /></a>
       </div>
       <div class="user">
         <div id="user-error" v-if="vision.error">Ingrese su usuario</div>
@@ -28,23 +28,22 @@
           <input type="text" v-model="username" placeholder="Ingresa tu usuario..." id="inputUser" />
           <button id="btnUser" type="submit">&#10148;</button>
         </form>
-        <p style="color:white" id="usershow" v-if="vision.user">{{username}}</p>
-        <!-- <img src="assets/images/blank-profile-picture-973460_960_720.webp" alt="" /> -->
-        <div id="modo-oscuro">
+        <p id="usershow" v-if="vision.user">{{username}}</p>
+        <div id="modo-oscuro" @click="modoOscuroButton" :class="{'active': modoOscuro}">
           <div class="toggle"></div>
         </div>
         <div class="icon-luna active">
-          <img src="assets/images/luna.png" alt="">
+          <img src="assets/images/luna.png" alt="simbolo luna">
         </div>
       </div>
     </header>
 
     <!-- MAIN -->
 
-    <main>
-      <div class="main-container">
+    <main :class="{'active': modoOscuro}">
+      <div class="main-container" >
         <!-- ZONA INFO -->
-        <div class="info zone">
+        <div :class="{'active': modoOscuro}" class="zone info">
           <div class="profile-photo"><img :src="user.image" :alt="user.alt"></div>
           <div class="profile-info">
             <h1> {{ user.name }} </h1>
@@ -60,7 +59,7 @@
         </div>
 
         <!-- ZONA PRIVADO -->
-        <div class="private-profile display-off zone" id="private-profile">
+        <div class="private-profile display-off zone" :class="{'active': modoOscuro}" id="private-profile">
           <div>
             <h3>ESTE PERFIL ES PRIVADO</h3>
             <h4>SIGUELO PARA VER EL CONTENIDO</h4>
@@ -70,7 +69,7 @@
 
         <!-- ZONA POST -->
 
-        <div class="post display-on zone" id="post">
+        <div class="post display-on zone" :class="{'active': modoOscuro}" id="post">
           <div class="post-date">
             <p>Publicado hace {{post.date}}</p>
           </div>
@@ -81,7 +80,7 @@
                   <img :src="post.image1" class="slider_img">
                 </div>
                 <div class="slider_section">
-                  <img :src="post.image2" class="slider_img">
+                  <img :src="post.image1" class="slider_img">
                 </div>
                 <div class="slider_section">
                   <img :src="post.image3" class="slider_img">
@@ -91,12 +90,12 @@
                 </div>
               </div>
 
-              <div class="slider_btn slider_btn_right zone" id="btn_right">
+              <!-- <div class="slider_btn slider_btn_right zone" :class="{'active': modoOscuro}" id="btn_right">
                 <section>&#62;</section>
               </div>
-              <div class="slider_btn slider_btn_left zone" id="btn_left">
+              <div class="slider_btn slider_btn_left zone" :class="{'active': modoOscuro}" id="btn_left">
                 <section>&#60;</section>
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="post-likes">
@@ -115,8 +114,8 @@
               <p><span>enzojfernandez:</span> GRACIAS💙🤍🇦🇷</p>
               <div id="my-coment">
                 <ul>
-                  <li  id="my-coment-li" v-for="(comentario, index) in comentArray" :key="index"><div id="divCom"><span>{{ username }}: </span> {{ comentario }}</div>
-                    <button @click="eliminar(index)" id="btnEliminar" class="">x</button></li>
+                  <li  id="my-coment-li" v-for="(comentario, index) in comentArray" :key="index"><div id="divCom" :class="{'active': modoOscuro}"><span>{{ username }}: </span> {{ comentario }}</div>
+                    <button @click="eliminar(index)" id="btnEliminar">x</button></li>
                 </ul>
                 
               </div>
@@ -127,7 +126,7 @@
                 <input v-model="comentText" type="text" placeholder="Ingrese un comentario..." name="coment" id="input-comentario">
                 <button type="submit" id="submit-coment" class="btnBlue zoom">Comentar</button>
               </form>
-              <div class="zone">
+              <div class="zone" :class="{'active': modoOscuro}">
                 <p id="zona-error" v-if="vision.comentError">{{errorVacio}}</p>
               </div>
             </div>
@@ -136,7 +135,7 @@
 
         <!--ZONA ABOUT-ME-->
 
-        <div class="about-me display-ofn zone" id="about-me">
+        <div class="about-me zone" :class="{'active': modoOscuro}" id="about-me">
           <p id="sobre-mi">Sobre mi:</p>
           <p>
             Hola, mi nombre es Lionel Andrés Messi, nací en la ciudad de Rosario, Santa Fé en el año 1987.

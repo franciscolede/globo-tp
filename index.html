@@ -23,7 +23,7 @@
         <a href=""><img src="assets/images/logo.webp" alt="Logo Globo" /></a>
       </div>
       <div class="user">
-        <div id="user-error" v-if="vision.error">Ingrese su usuario</div>
+        <div id="user-error" v-if="vision.error">Ingrese un nombre de usuario para poder {{razon}}. </div>
         <form @submit.prevent="submitUser" v-if="vision.userForm" id="formUser">
           <input type="text" v-model="username" placeholder="Ingresa tu usuario..." id="inputUser" />
           <button id="btnUser" type="submit">&#10148;</button>

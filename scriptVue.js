@@ -45,7 +45,7 @@ const app = Vue.createApp({
       },
 
       about: {
-        text: "Hola, mi nombre es Lionel Andrés Messi, nací en la ciudad de Rosario, Santa Fé en el año 1987. Soy futbolista y comencé mi carrera profesional en el FC Barcelona, club en el que gané una gran cantidad de títulos. Hoy en día me encuentro jugando en el Inter de Miami, club al que llegué en 2023 después de un breve paso por el PSG. Además, en 2022 pude cumplir mi máximo sueño, ganar la copa del mundo con mi país, lo cual es un orgullo para mí.",
+        text: "Hola, mi nombre es Lionel Andrés Messi, nací en la ciudad de Rosario, Santa Fé en el año 1987. Soy futbolista y comencé mi carrera profesional en el FC Barcelona, club en el que gané una gran cantidad de títulos. Hoy en día me encuentro jugando en Inter de Miami, club al que llegué en 2023 después de un breve paso por el PSG. Además, en 2022 pude cumplir mi máximo sueño, ganar la copa del mundo con mi país, lo cual es un orgullo para mí.",
       },
     };
   },

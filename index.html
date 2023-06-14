@@ -58,15 +58,6 @@
           </div>
         </div>
 
-        <!-- ZONA PRIVADO -->
-        <div class="private-profile display-off zone" :class="{'active': modoOscuro}" id="private-profile">
-          <div>
-            <h3>ESTE PERFIL ES PRIVADO</h3>
-            <h4>SIGUELO PARA VER EL CONTENIDO</h4>
-            <img src="assets/images/candado.png" alt="Candado">
-          </div>
-        </div>
-
         <!-- ZONA POST -->
 
         <div class="post display-on zone" :class="{'active': modoOscuro}" id="post">
@@ -75,27 +66,7 @@
           </div>
           <div class="post-photos">
             <div class="container-slider">
-              <div class="slider" id="slider">
-                <div class="slider_section">
-                  <img :src="post.image1" class="slider_img">
-                </div>
-                <div class="slider_section">
-                  <img :src="post.image1" class="slider_img">
-                </div>
-                <div class="slider_section">
-                  <img :src="post.image3" class="slider_img">
-                </div>
-                <div class="slider_section">
-                  <img :src="post.image4" class="slider_img">
-                </div>
-              </div>
-
-              <!-- <div class="slider_btn slider_btn_right zone" :class="{'active': modoOscuro}" id="btn_right">
-                <section>&#62;</section>
-              </div>
-              <div class="slider_btn slider_btn_left zone" :class="{'active': modoOscuro}" id="btn_left">
-                <section>&#60;</section>
-              </div> -->
+              <img :src="post.image1" class="slider_img">
             </div>
           </div>
           <div class="post-likes">
@@ -140,10 +111,8 @@
           <p>
             Hola, mi nombre es Lionel Andrés Messi, nací en la ciudad de Rosario, Santa Fé en el año 1987.
             Soy futbolista y comencé mi carrera profesional en el FC Barcelona, club en el que gané una gran cantidad de
-            títulos. Hoy en día me encuentro jugando en el Paris-Saint-Germain, club al que llegué en 2021 después de
-            ganar mi primer título con la selección Argentina.
-            Además, en 2022 pude cumplir mi máximo sueño, ganar la copa del mundo con mi país, lo cual es un orgullo
-            para mí.
+            títulos. Hoy en día me encuentro jugando en el Inter de Miami, club al que llegué en 2023 después de un breve paso por el PSG.
+            Además, en 2022 pude cumplir mi máximo sueño, ganar la copa del mundo con mi país, lo cual es un orgullo para mí.
           </p>
         </div>
       </div>
@@ -155,7 +124,6 @@
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="scriptVue.js"></script>
-    <!-- <script src="script.js"></script> -->
 
 
   </div>

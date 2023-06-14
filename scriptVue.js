@@ -55,22 +55,29 @@ const app = Vue.createApp({
 },
 methods:{
         submitUser() {
+            
             if (this.username !== ""){
-                this.vision.error = false;
-        
-                this.vision.userForm = false;
-                
-                this.vision.user = true;
-                this.usernameCheck = true;
-                this.razon = "";
+                    if (this.username.trim() !== ""){
+                        this.vision.error = false;
+                        
+                        this.vision.userForm = false;
+                        
+                        this.vision.user = true;
+                        this.usernameCheck = true;
+                        this.razon = "";
+                    }
+                    else {
+                        this.razon = "acceder";
+                        this.vision.error = true;
+                      }
             }
             else{
-                this.razon = "acceder";
-                this.vision.error = true;
-                inputUser.focus();
-            }
-        },
-        
+                    this.razon = "acceder";
+                    this.vision.error = true;
+                    inputUser.focus();
+                }
+            },
+            
         follow() {
             if (this.usernameCheck === true) {   
                 
@@ -121,10 +128,11 @@ methods:{
                     this.comentArray.push(this.comentText);
                     this.comentText = "";
                     this.vision.comentError = false;
-                  } else {
+                } 
+                else {
                     this.vision.comentError = true;
                   }
-                  this.razon = "";
+                this.razon = "";
             }
             else{
                 this.razon = "comentar";
